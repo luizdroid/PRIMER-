@@ -49,8 +49,8 @@
         .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1rem 2rem; transition: all 0.4s ease; background: transparent; }
         .navbar.scrolled { background: rgba(10, 25, 41, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 0.8rem 2rem; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); }
         .navbar-inner { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
-        .logo-nav { height: 50px; transition: all 0.3s ease; }
-        .navbar.scrolled .logo-nav { height: 42px; }
+        .brand-text { color: var(--white); text-decoration: none; font-weight: 900; letter-spacing: 2.5px; font-size: 1.45rem; line-height: 1; }
+        .brand-text span { color: var(--sky-bright); }
         .nav-links { display: flex; gap: 2.5rem; align-items: center; }
         .nav-links a { color: var(--white); text-decoration: none; font-weight: 500; font-size: 0.95rem; position: relative; transition: color 0.3s ease; }
         .nav-links a::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: var(--sky-blue); transition: width 0.3s ease; }
@@ -80,6 +80,7 @@
             top: 30%; right: 20%; animation: float 8s ease-in-out infinite reverse;
         }
         .hero-content { position: relative; z-index: 10; text-align: center; max-width: 900px; padding: 0 2rem; animation: fadeInUp 1s ease-out; }
+        .hero-kicker { display: inline-flex; align-items: center; justify-content: center; padding: 0.55rem 1.25rem; margin-bottom: 1.4rem; border: 1px solid rgba(255,255,255,0.22); border-radius: 999px; color: var(--sky-bright); background: rgba(255,255,255,0.06); backdrop-filter: blur(12px); font-size: 0.78rem; font-weight: 800; letter-spacing: 2.2px; text-transform: uppercase; }
         .hero-logo { width: 400px; max-width: 85vw; margin-bottom: 2rem;
             filter: drop-shadow(0 10px 40px rgba(0, 168, 232, 0.25));
             animation: scaleIn 1.2s ease-out, float 6s ease-in-out infinite 1s;
@@ -349,7 +350,7 @@
     <!-- NAVBAR -->
     <nav class="navbar" id="navbar">
         <div class="navbar-inner">
-            <img src="logo-socala.png" alt="SOCALA Logo" class="logo-nav" id="logo-nav">
+            <a href="#inicio" class="brand-text" aria-label="SOCALA inicio"><span>S</span>OCALA</a>
             <div class="nav-links" id="nav-links">
                 <a href="#inicio">Inicio</a>
                 <a href="#materiales">Materiales</a>
@@ -373,12 +374,12 @@
         <div class="hero-glow"></div>
         <div class="hero-glow-2"></div>
         <div class="hero-content">
-            <img src="logo-socala.png" alt="SOCALA - La Fuerza Detrás de Cada Obra" class="hero-logo">
+            <div class="hero-kicker">SOCALA · El Salvador</div>
             <h1 class="hero-title">
-                La <span>Fuerza</span> Detrás<br>de Cada Obra
+                Materiales y Soluciones<br>para tu <span>Obra</span>
             </h1>
             <p class="hero-subtitle">
-                Materiales, herramientas y logística para tu obra.
+                Materiales, herramientas y logística para construcción. Atención rápida, cotización directa y respaldo para cada proyecto.
             </p>
             <div class="hero-buttons">
                 <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20materiales%20de%20construcción." class="btn btn-primary" target="_blank">
@@ -497,7 +498,7 @@
         <div class="container">
             <div class="about-grid">
                 <div class="about-image-wrapper animate-on-scroll">
-                    <img src="cemento.jpg" alt="SOCALA - Materiales de construcción El Salvador" class="about-image">
+                    <img src="cemento.png" alt="SOCALA - Materiales de construcción El Salvador" class="about-image">
                     <div class="about-image-accent"></div>
                 </div>
                 <div class="about-content animate-on-scroll delay-2">
@@ -510,7 +511,7 @@
                         Ya seas albañil, maestro de obra o alguien que apenas está comenzando, en SOCALA encontrarás respaldo para sacar el trabajo adelante.
                     </p>
                     <p class="about-text">
-                        Porque construir no solo se trata de cemento, hierro o bloques… también se trata de <strong>confianza</strong>, <strong>apoyo</strong> y de tener a alguien que la soca junto a vos cuando la obra no puede parar.
+                        Porque construir no solo se trata de cemento, hierro o bloques… también se trata de <strong>confianza</strong>, <strong>apoyo</strong> y de tener una solución que respalde tu obra cuando no puede parar.
                     </p>
                     <div class="about-quote">
                         <p>"La Fuerza Detrás de Cada Obra"</p>
