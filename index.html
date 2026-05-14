@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SOCALA - La Fuerza Detrás de Cada Obra | Materiales, Herramientas y Logística para Construcción</title>
+    <meta name="description" content="SOCALA - Materiales, herramientas y logística para tu obra en San Juan Opico, La Libertad, El Salvador. Marca cuscatleca. Entregas coordinadas, cotización directa y apoyo profesional.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        :root {
+            --sky-blue: #00A8E8;
+            --sky-bright: #4FC3F7;
+            --deep-blue: #0A1929;
+            --deep-blue-light: #132F4C;
+            --navy: #0D2137;
+            --gold: #D4AF37;
+            --gold-light: #F0D878;
+            --white: #FFFFFF;
+            --off-white: #F8FAFC;
+            --gray-light: #E2E8F0;
+            --gray: #94A3B8;
+            --dark-gray: #475569;
+            --text-primary: #0F172A;
+            --text-secondary: #64748B;
+        }
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--text-primary); overflow-x: hidden; line-height: 1.6; }
+
+        @keyframes fadeInUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes scaleIn { from { opacity: 0; transform: scale(0.9); } to { opacity: 1; transform: scale(1); } }
+        @keyframes float { 0%, 100% { transform: translateY(0px); } 50% { transform: translateY(-15px); } }
+        @keyframes pulse { 0%, 100% { box-shadow: 0 0 0 0 rgba(0, 168, 232, 0.4); } 50% { box-shadow: 0 0 0 20px rgba(0, 168, 232, 0); } }
+        @keyframes shimmer { 0% { background-position: -200% center; } 100% { background-position: 200% center; } }
+
+        .animate-on-scroll { opacity: 0; transform: translateY(40px); transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1); }
+        .animate-on-scroll.visible { opacity: 1; transform: translateY(0); }
+        .delay-1 { transition-delay: 0.1s; }
+        .delay-2 { transition-delay: 0.2s; }
+        .delay-3 { transition-delay: 0.3s; }
+        .delay-4 { transition-delay: 0.4s; }
+        .delay-5 { transition-delay: 0.5s; }
+        .delay-6 { transition-delay: 0.6s; }
+
+        /* NAVBAR */
+        .navbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; padding: 1rem 2rem; transition: all 0.4s ease; background: transparent; }
+        .navbar.scrolled { background: rgba(10, 25, 41, 0.95); backdrop-filter: blur(20px); -webkit-backdrop-filter: blur(20px); padding: 0.8rem 2rem; box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3); }
+        .navbar-inner { max-width: 1400px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; }
+        .logo-nav { height: 50px; transition: all 0.3s ease; }
+        .navbar.scrolled .logo-nav { height: 42px; }
+        .nav-links { display: flex; gap: 2.5rem; align-items: center; }
+        .nav-links a { color: var(--white); text-decoration: none; font-weight: 500; font-size: 0.95rem; position: relative; transition: color 0.3s ease; }
+        .nav-links a::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: var(--sky-blue); transition: width 0.3s ease; }
+        .nav-links a:hover::after { width: 100%; }
+        .nav-links a:hover { color: var(--sky-bright); }
+        .nav-cta { background: var(--sky-blue); color: var(--white) !important; padding: 0.6rem 1.5rem; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; }
+        .nav-cta::after { display: none !important; }
+        .nav-cta:hover { background: var(--sky-bright); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 168, 232, 0.4); }
+        .mobile-menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
+
+        /* HERO - MÁS LIMPIO */
+        .hero { min-height: 100vh; position: relative; display: flex; align-items: center; justify-content: center; overflow: hidden; background: var(--deep-blue); }
+        .hero-bg { position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(135deg, rgba(10, 25, 41, 0.70) 0%, rgba(19, 47, 76, 0.60) 50%, rgba(10, 25, 41, 0.65) 100%),
+                url('https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&q=80') center/cover;
+        }
+        .hero-grid-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: linear-gradient(rgba(0, 168, 232, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 168, 232, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px; opacity: 0.5;
+        }
+        .hero-glow { position: absolute; width: 600px; height: 600px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(0, 168, 232, 0.12) 0%, transparent 70%);
+            top: 50%; left: 50%; transform: translate(-50%, -50%); animation: float 6s ease-in-out infinite;
+        }
+        .hero-glow-2 { position: absolute; width: 400px; height: 400px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(212, 175, 55, 0.06) 0%, transparent 70%);
+            top: 30%; right: 20%; animation: float 8s ease-in-out infinite reverse;
+        }
+        .hero-content { position: relative; z-index: 10; text-align: center; max-width: 900px; padding: 0 2rem; animation: fadeInUp 1s ease-out; }
+        .hero-logo { width: 400px; max-width: 85vw; margin-bottom: 2rem;
+            filter: drop-shadow(0 10px 40px rgba(0, 168, 232, 0.25));
+            animation: scaleIn 1.2s ease-out, float 6s ease-in-out infinite 1s;
+        }
+        .hero-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 4rem); font-weight: 800; color: var(--white);
+            line-height: 1.1; margin-bottom: 1.5rem; text-shadow: 0 2px 20px rgba(0, 0, 0, 0.2);
+        }
+        .hero-title span { background: linear-gradient(135deg, var(--sky-bright), var(--sky-blue), var(--gold-light));
+            -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
+            background-size: 200% auto; animation: shimmer 4s linear infinite;
+        }
+        .hero-subtitle { font-size: clamp(1.1rem, 2.5vw, 1.35rem); color: rgba(255, 255, 255, 0.9);
+            max-width: 650px; margin: 0 auto 3rem; font-weight: 300; line-height: 1.7;
+        }
+        .hero-buttons { display: flex; gap: 1.5rem; justify-content: center; flex-wrap: wrap; }
+        .btn { display: inline-flex; align-items: center; gap: 0.6rem; padding: 1rem 2.5rem; border-radius: 50px;
+            font-weight: 600; font-size: 1rem; text-decoration: none; transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            cursor: pointer; border: none; position: relative; overflow: hidden;
+        }
+        .btn-primary { background: linear-gradient(135deg, var(--sky-blue), var(--sky-bright)); color: var(--white);
+            box-shadow: 0 8px 30px rgba(0, 168, 232, 0.4);
+        }
+        .btn-primary:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 15px 40px rgba(0, 168, 232, 0.5); }
+        .btn-secondary { background: transparent; color: var(--white); border: 2px solid rgba(255, 255, 255, 0.3); backdrop-filter: blur(10px); }
+        .btn-secondary:hover { background: rgba(255, 255, 255, 0.1); border-color: var(--sky-blue); transform: translateY(-3px); }
+        .btn-shine { position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent); transition: left 0.5s ease;
+        }
+        .btn:hover .btn-shine { left: 100%; }
+        .hero-scroll { position: absolute; bottom: 2rem; left: 50%; transform: translateX(-50%); color: var(--white);
+            opacity: 0.6; animation: float 3s ease-in-out infinite; cursor: pointer;
+        }
+        .hero-scroll i { font-size: 1.5rem; }
+
+        /* SECTIONS */
+        section { padding: 6rem 2rem; position: relative; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-header { text-align: center; margin-bottom: 4rem; }
+        .section-label { display: inline-block; padding: 0.4rem 1.2rem; background: rgba(0, 168, 232, 0.1);
+            color: var(--sky-blue); border-radius: 50px; font-size: 0.85rem; font-weight: 600;
+            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 1rem;
+        }
+        .section-title { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 4vw, 3.2rem);
+            font-weight: 700; color: var(--deep-blue); line-height: 1.2; margin-bottom: 1rem;
+        }
+        .section-title span { color: var(--sky-blue); }
+        .section-subtitle { font-size: 1.1rem; color: var(--text-secondary); max-width: 600px; margin: 0 auto; }
+
+        /* CATEGORIES */
+        .categories { background: var(--off-white); }
+        .categories-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 2rem; }
+        .category-card { background: var(--white); border-radius: 20px; overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+            position: relative; cursor: pointer;
+        }
+        .category-card:hover { transform: translateY(-10px); box-shadow: 0 20px 50px rgba(0, 168, 232, 0.15); }
+        .category-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--sky-blue), var(--gold)); transform: scaleX(0); transition: transform 0.4s ease;
+        }
+        .category-card:hover::before { transform: scaleX(1); }
+        .category-image { width: 100%; height: 220px; object-fit: cover; transition: transform 0.6s ease; }
+        .category-card:hover .category-image { transform: scale(1.08); }
+        .category-content { padding: 1.8rem; }
+        .category-icon { width: 50px; height: 50px; background: linear-gradient(135deg, var(--sky-blue), var(--sky-bright));
+            border-radius: 14px; display: flex; align-items: center; justify-content: center; color: var(--white);
+            font-size: 1.3rem; margin-bottom: 1rem; box-shadow: 0 8px 20px rgba(0, 168, 232, 0.3);
+        }
+        .category-title { font-size: 1.3rem; font-weight: 700; color: var(--deep-blue); margin-bottom: 0.5rem; }
+        .category-desc { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.6; }
+        .categories-footer { text-align: center; margin-top: 3rem; font-size: 1.1rem; color: var(--text-secondary); font-style: italic; }
+
+        /* ABOUT */
+        .about { background: var(--white); position: relative; overflow: hidden; }
+        .about::before { content: ''; position: absolute; top: -100px; right: -100px; width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(0, 168, 232, 0.05) 0%, transparent 70%); border-radius: 50%;
+        }
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
+        .about-image-wrapper { position: relative; }
+        .about-image { width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); }
+        .about-image-accent { position: absolute; bottom: -20px; right: -20px; width: 150px; height: 150px;
+            border: 3px solid var(--gold); border-radius: 20px; z-index: -1;
+        }
+        .about-content h2 { font-family: 'Playfair Display', serif; font-size: clamp(2rem, 3vw, 2.8rem);
+            font-weight: 700; color: var(--deep-blue); margin-bottom: 1.5rem; line-height: 1.2;
+        }
+        .about-content h2 span { color: var(--sky-blue); }
+        .about-text { color: var(--text-secondary); font-size: 1.05rem; line-height: 1.9; margin-bottom: 1.5rem; }
+        .about-quote { padding: 1.5rem 2rem; border-left: 4px solid var(--sky-blue);
+            background: linear-gradient(135deg, rgba(0, 168, 232, 0.05), rgba(212, 175, 55, 0.05));
+            border-radius: 0 12px 12px 0; margin-top: 2rem;
+        }
+        .about-quote p { font-family: 'Playfair Display', serif; font-size: 1.3rem; font-weight: 600; color: var(--deep-blue); font-style: italic; }
+
+        /* SERVICES */
+        .services { background: linear-gradient(135deg, var(--deep-blue) 0%, var(--navy) 100%); color: var(--white); position: relative; overflow: hidden; }
+        .services::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: linear-gradient(rgba(0, 168, 232, 0.02) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 168, 232, 0.02) 1px, transparent 1px);
+            background-size: 50px 50px;
+        }
+        .services .section-title { color: var(--white); }
+        .services .section-subtitle { color: var(--gray); }
+        .services .section-label { background: rgba(255, 255, 255, 0.1); color: var(--sky-bright); }
+        .services-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(260px, 1fr)); gap: 2rem; }
+        .service-card { background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px; padding: 2.5rem 2rem; text-align: center; transition: all 0.4s ease; position: relative; overflow: hidden;
+        }
+        .service-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 100%;
+            background: linear-gradient(135deg, rgba(0, 168, 232, 0.1), transparent); opacity: 0; transition: opacity 0.4s ease;
+        }
+        .service-card:hover::before { opacity: 1; }
+        .service-card:hover { transform: translateY(-8px); border-color: rgba(0, 168, 232, 0.3); box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3); }
+        .service-icon { width: 70px; height: 70px; background: linear-gradient(135deg, var(--sky-blue), var(--sky-bright));
+            border-radius: 20px; display: flex; align-items: center; justify-content: center; font-size: 1.8rem;
+            color: var(--white); margin: 0 auto 1.5rem; box-shadow: 0 10px 30px rgba(0, 168, 232, 0.3); position: relative; z-index: 1;
+        }
+        .service-title { font-size: 1.2rem; font-weight: 700; margin-bottom: 0.8rem; position: relative; z-index: 1; }
+        .service-desc { color: var(--gray); font-size: 0.95rem; line-height: 1.7; position: relative; z-index: 1; }
+
+        /* WHY CHOOSE */
+        .why-choose { background: var(--off-white); }
+        .why-choose .section-title { color: var(--deep-blue); }
+        .features-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .feature-card { background: var(--white); border-radius: 20px; padding: 2.5rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); transition: all 0.4s ease; position: relative; overflow: hidden; border: 1px solid transparent;
+        }
+        .feature-card::before { content: ''; position: absolute; top: 0; left: 0; width: 100%; height: 4px;
+            background: linear-gradient(90deg, var(--sky-blue), var(--gold)); transform: scaleX(0); transition: transform 0.4s ease;
+        }
+        .feature-card:hover::before { transform: scaleX(1); }
+        .feature-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(0, 168, 232, 0.1); border-color: rgba(0, 168, 232, 0.1); }
+        .feature-icon { width: 60px; height: 60px; background: linear-gradient(135deg, var(--sky-blue), var(--sky-bright));
+            border-radius: 16px; display: flex; align-items: center; justify-content: center; font-size: 1.5rem;
+            color: var(--white); margin-bottom: 1.5rem; box-shadow: 0 10px 30px rgba(0, 168, 232, 0.3);
+        }
+        .feature-title { font-size: 1.2rem; font-weight: 700; color: var(--deep-blue); margin-bottom: 0.8rem; }
+        .feature-desc { color: var(--text-secondary); font-size: 0.95rem; line-height: 1.7; }
+
+        /* PRODUCTS */
+        .products { background: var(--white); position: relative; }
+        .products::before { content: ''; position: absolute; bottom: -100px; left: -100px; width: 400px; height: 400px;
+            background: radial-gradient(circle, rgba(0, 168, 232, 0.03) 0%, transparent 70%); border-radius: 50%;
+        }
+        .products-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem; }
+        .product-card { background: var(--off-white); border-radius: 20px; overflow: hidden;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.06); transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1); position: relative;
+        }
+        .product-card:hover { transform: translateY(-10px) scale(1.02); box-shadow: 0 25px 60px rgba(0, 168, 232, 0.12); }
+        .product-image-wrapper { position: relative; overflow: hidden; height: 250px; }
+        .product-image { width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease; }
+        .product-card:hover .product-image { transform: scale(1.1); }
+        .product-overlay { position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: linear-gradient(to top, rgba(10, 25, 41, 0.8), transparent);
+            display: flex; align-items: flex-end; padding: 1.5rem; opacity: 0; transition: opacity 0.4s ease;
+        }
+        .product-card:hover .product-overlay { opacity: 1; }
+        .product-badge { display: inline-block; padding: 0.4rem 1rem; background: var(--sky-blue); color: var(--white);
+            border-radius: 50px; font-size: 0.8rem; font-weight: 600;
+        }
+        .product-content { padding: 1.8rem; }
+        .product-title { font-size: 1.3rem; font-weight: 700; color: var(--deep-blue); margin-bottom: 0.5rem; }
+        .product-note { color: var(--sky-blue); font-size: 0.9rem; font-weight: 500; display: flex; align-items: center; gap: 0.5rem; }
+        .product-note i { font-size: 1.1rem; }
+        .products-footer { text-align: center; margin-top: 3rem; padding: 1.5rem;
+            background: linear-gradient(135deg, rgba(0, 168, 232, 0.08), rgba(212, 175, 55, 0.08));
+            border-radius: 16px; max-width: 700px; margin-left: auto; margin-right: auto;
+        }
+        .products-footer p { color: var(--text-secondary); font-size: 1.05rem; }
+        .products-footer strong { color: var(--deep-blue); }
+
+        /* CTA */
+        .cta-section { background: linear-gradient(135deg, var(--sky-blue) 0%, var(--deep-blue-light) 50%, var(--deep-blue) 100%);
+            position: relative; overflow: hidden; padding: 8rem 2rem;
+        }
+        .cta-section::before { content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+            background-size: 60px 60px;
+        }
+        .cta-glow { position: absolute; width: 500px; height: 500px; border-radius: 50%;
+            background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 0%, transparent 70%);
+            top: 50%; left: 50%; transform: translate(-50%, -50%); animation: float 7s ease-in-out infinite;
+        }
+        .cta-content { position: relative; z-index: 10; text-align: center; max-width: 700px; margin: 0 auto; }
+        .cta-title { font-family: 'Playfair Display', serif; font-size: clamp(2.2rem, 5vw, 3.5rem); font-weight: 800;
+            color: var(--white); margin-bottom: 1rem; line-height: 1.2;
+        }
+        .cta-subtitle { font-size: 1.2rem; color: rgba(255, 255, 255, 0.85); margin-bottom: 2.5rem; font-weight: 300; }
+        .cta-btn { display: inline-flex; align-items: center; gap: 0.8rem; padding: 1.2rem 3rem; background: var(--white);
+            color: var(--deep-blue); border-radius: 50px; font-weight: 700; font-size: 1.1rem;
+            text-decoration: none; transition: all 0.4s ease; box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3); animation: pulse 2s infinite;
+        }
+        .cta-btn:hover { transform: translateY(-3px) scale(1.05); box-shadow: 0 15px 50px rgba(0, 0, 0, 0.4); }
+        .cta-btn i { font-size: 1.3rem; color: #25D366; }
+
+        /* FOOTER */
+        .footer { background: var(--deep-blue); color: var(--white); padding: 4rem 2rem 2rem; position: relative; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto 3rem; }
+        .footer-brand { max-width: 300px; }
+        .footer-logo { height: 60px; margin-bottom: 1rem; }
+        .footer-brand p { color: var(--gray); font-size: 0.95rem; line-height: 1.7; }
+        .footer-title { font-size: 1rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--white); text-transform: uppercase; letter-spacing: 1px; }
+        .footer-links { list-style: none; }
+        .footer-links li { margin-bottom: 0.8rem; }
+        .footer-links a { color: var(--gray); text-decoration: none; font-size: 0.95rem; transition: color 0.3s ease;
+            display: flex; align-items: center; gap: 0.5rem;
+        }
+        .footer-links a:hover { color: var(--sky-bright); }
+        .footer-links a i { font-size: 0.8rem; color: var(--sky-blue); }
+        .footer-contact p { color: var(--gray); font-size: 0.95rem; margin-bottom: 1rem; display: flex; align-items: center; gap: 0.8rem; }
+        .footer-contact i { color: var(--sky-blue); width: 20px; }
+        .footer-social { display: flex; gap: 1rem; margin-top: 1.5rem; }
+        .social-link { width: 40px; height: 40px; border-radius: 50%; background: rgba(255, 255, 255, 0.1);
+            display: flex; align-items: center; justify-content: center; color: var(--white);
+            text-decoration: none; transition: all 0.3s ease; font-size: 1rem;
+        }
+        .social-link:hover { background: var(--sky-blue); transform: translateY(-3px); }
+        .footer-bottom { border-top: 1px solid rgba(255, 255, 255, 0.1); padding-top: 2rem; text-align: center; max-width: 1200px; margin: 0 auto; }
+        .footer-bottom p { color: var(--gray); font-size: 0.9rem; }
+        .footer-bottom span { color: var(--sky-blue); }
+
+        /* WHATSAPP FLOAT */
+        .whatsapp-float { position: fixed; bottom: 2rem; right: 2rem; z-index: 999; width: 60px; height: 60px;
+            background: linear-gradient(135deg, #25D366, #128C7E); border-radius: 50%;
+            display: flex; align-items: center; justify-content: center; color: var(--white);
+            font-size: 1.8rem; text-decoration: none; box-shadow: 0 8px 30px rgba(37, 211, 102, 0.4);
+            transition: all 0.4s ease; animation: pulse 2s infinite;
+        }
+        .whatsapp-float:hover { transform: scale(1.1) translateY(-5px); box-shadow: 0 15px 40px rgba(37, 211, 102, 0.5); }
+        .whatsapp-tooltip { position: absolute; right: 70px; top: 50%; transform: translateY(-50%);
+            background: var(--deep-blue); color: var(--white); padding: 0.6rem 1rem;
+            border-radius: 10px; font-size: 0.85rem; white-space: nowrap; opacity: 0;
+            pointer-events: none; transition: all 0.3s ease; box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+        }
+        .whatsapp-tooltip::after { content: ''; position: absolute; right: -6px; top: 50%; transform: translateY(-50%);
+            border-width: 6px 0 6px 6px; border-style: solid; border-color: transparent transparent transparent var(--deep-blue);
+        }
+        .whatsapp-float:hover .whatsapp-tooltip { opacity: 1; right: 75px; }
+
+        /* RESPONSIVE */
+        @media (max-width: 1024px) {
+            .about-grid { grid-template-columns: 1fr; gap: 3rem; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+        }
+        @media (max-width: 768px) {
+            .navbar { padding: 1rem; }
+            .nav-links { display: none; position: absolute; top: 100%; left: 0; right: 0;
+                background: rgba(10, 25, 41, 0.98); flex-direction: column; padding: 2rem;
+                gap: 1.5rem; backdrop-filter: blur(20px);
+            }
+            .nav-links.active { display: flex; }
+            .mobile-menu-btn { display: block; }
+            .hero-logo { width: 280px; }
+            .hero-buttons { flex-direction: column; align-items: center; }
+            .btn { width: 100%; max-width: 300px; justify-content: center; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+            .whatsapp-float { width: 55px; height: 55px; font-size: 1.5rem; bottom: 1.5rem; right: 1.5rem; }
+            .whatsapp-tooltip { display: none; }
+        }
+        @media (max-width: 480px) {
+            section { padding: 4rem 1rem; }
+            .hero-logo { width: 240px; }
+            .category-card, .feature-card, .product-card, .service-card { border-radius: 16px; }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <nav class="navbar" id="navbar">
+        <div class="navbar-inner">
+            <img src="logo-socala.png" alt="SOCALA Logo" class="logo-nav" id="logo-nav">
+            <div class="nav-links" id="nav-links">
+                <a href="#inicio">Inicio</a>
+                <a href="#materiales">Materiales</a>
+                <a href="#servicios">Servicios</a>
+                <a href="#nosotros">Nosotros</a>
+                <a href="#productos">Productos</a>
+                <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20materiales%20de%20construcción." class="nav-cta" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Cotizar
+                </a>
+            </div>
+            <button class="mobile-menu-btn" id="mobile-menu-btn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION -->
+    <section class="hero" id="inicio">
+        <div class="hero-bg"></div>
+        <div class="hero-grid-overlay"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-glow-2"></div>
+        <div class="hero-content">
+            <img src="logo-socala.png" alt="SOCALA - La Fuerza Detrás de Cada Obra" class="hero-logo">
+            <h1 class="hero-title">
+                La <span>Fuerza</span> Detrás<br>de Cada Obra
+            </h1>
+            <p class="hero-subtitle">
+                Materiales, herramientas y logística para tu obra.
+            </p>
+            <div class="hero-buttons">
+                <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20materiales%20de%20construcción." class="btn btn-primary" target="_blank">
+                    <span class="btn-shine"></span>
+                    <i class="fab fa-whatsapp"></i>
+                    Cotizar por WhatsApp
+                </a>
+                <a href="#materiales" class="btn btn-secondary">
+                    <i class="fas fa-cubes"></i>
+                    Ver Materiales
+                </a>
+            </div>
+        </div>
+        <a href="#materiales" class="hero-scroll">
+            <i class="fas fa-chevron-down"></i>
+        </a>
+    </section>
+
+    <!-- CATEGORIES SECTION -->
+    <section class="categories" id="materiales">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">Nuestros Materiales</span>
+                <h2 class="section-title">Todo lo que tu <span>obra</span> necesita</h2>
+                <p class="section-subtitle">Materiales de construcción de calidad para proyectos grandes y pequeños</p>
+            </div>
+            <div class="categories-grid">
+                <div class="category-card animate-on-scroll delay-1">
+                    <img src="bloques.jpg" alt="Bloques de construcción" class="category-image">
+                    <div class="category-content">
+                        <div class="category-icon"><i class="fas fa-th-large"></i></div>
+                        <h3 class="category-title">Bloques</h3>
+                        <p class="category-desc">Bloques de concreto de alta resistencia para muros, divisiones y estructuras duraderas.</p>
+                    </div>
+                </div>
+                <div class="category-card animate-on-scroll delay-2">
+                    <img src="cemento.jpg" alt="Cemento El Salvador" class="category-image">
+                    <div class="category-content">
+                        <div class="category-icon"><i class="fas fa-weight-hanging"></i></div>
+                        <h3 class="category-title">Cemento</h3>
+                        <p class="category-desc">Cemento de alta calidad garantizado para cimentaciones, losas y acabados.</p>
+                    </div>
+                </div>
+                <div class="category-card animate-on-scroll delay-3">
+                    <img src="hierro.jpg" alt="Hierro de construcción" class="category-image">
+                    <div class="category-content">
+                        <div class="category-icon"><i class="fas fa-grip-lines"></i></div>
+                        <h3 class="category-title">Hierro</h3>
+                        <p class="category-desc">Varilla corrugada, ángulos, perfiles y tubería para estructuras metálicas y refuerzo.</p>
+                    </div>
+                </div>
+                <div class="category-card animate-on-scroll delay-4">
+                    <img src="arena.jpg" alt="Arena" class="category-image">
+                    <div class="category-content">
+                        <div class="category-icon"><i class="fas fa-mountain"></i></div>
+                        <h3 class="category-title">Arena</h3>
+                        <p class="category-desc">Arena fina y gruesa seleccionada para mezclas de concreto, mortero y acabados.</p>
+                    </div>
+                </div>
+                <div class="category-card animate-on-scroll delay-5">
+                    <img src="grava.jpg" alt="Grava" class="category-image">
+                    <div class="category-content">
+                        <div class="category-icon"><i class="fas fa-gem"></i></div>
+                        <h3 class="category-title">Grava</h3>
+                        <p class="category-desc">Grava triturada de diferentes tamaños para concreto, drenaje y bases de construcción.</p>
+                    </div>
+                </div>
+                <div class="category-card animate-on-scroll delay-6">
+                    <img src="herramientas.jpg" alt="Herramientas de construcción" class="category-image">
+                    <div class="category-content">
+                        <div class="category-icon"><i class="fas fa-tools"></i></div>
+                        <h3 class="category-title">Herramientas</h3>
+                        <p class="category-desc">Herramientas profesionales de calidad para albañiles y maestros de obra.</p>
+                    </div>
+                </div>
+            </div>
+            <p class="categories-footer animate-on-scroll">"Materiales confiables para proyectos grandes y pequeños"</p>
+        </div>
+    </section>
+
+    <!-- SERVICES SECTION -->
+    <section class="services" id="servicios">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">Nuestros Servicios</span>
+                <h2 class="section-title">Más que <span>materiales</span></h2>
+                <p class="section-subtitle">Soluciones operativas para que tu obra avance sin detenerse</p>
+            </div>
+            <div class="services-grid">
+                <div class="service-card animate-on-scroll delay-1">
+                    <div class="service-icon"><i class="fas fa-truck"></i></div>
+                    <h3 class="service-title">Entregas Coordinadas</h3>
+                    <p class="service-desc">Llevamos tus materiales directo a la obra. Coordinamos la fecha de entrega para que no pierdas tiempo.</p>
+                </div>
+                <div class="service-card animate-on-scroll delay-2">
+                    <div class="service-icon"><i class="fas fa-bolt"></i></div>
+                    <h3 class="service-title">Atención Rápida</h3>
+                    <p class="service-desc">Estamos listos para ayudarte con tu cotización. Sabemos que en construcción cada hora cuenta.</p>
+                </div>
+                <div class="service-card animate-on-scroll delay-3">
+                    <div class="service-icon"><i class="fas fa-file-invoice-dollar"></i></div>
+                    <h3 class="service-title">Cotización Directa</h3>
+                    <p class="service-desc">Cotiza por WhatsApp sin intermediarios. Precios claros, sin sorpresas, sin complicaciones.</p>
+                </div>
+                <div class="service-card animate-on-scroll delay-4">
+                    <div class="service-icon"><i class="fas fa-hard-hat"></i></div>
+                    <h3 class="service-title">Apoyo para Obras</h3>
+                    <p class="service-desc">Te orientamos en qué materiales necesitas y en qué cantidad. No importa si eres experto o primerizo.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ABOUT SECTION -->
+    <section class="about" id="nosotros">
+        <div class="container">
+            <div class="about-grid">
+                <div class="about-image-wrapper animate-on-scroll">
+                    <img src="cemento.jpg" alt="SOCALA - Materiales de construcción El Salvador" class="about-image">
+                    <div class="about-image-accent"></div>
+                </div>
+                <div class="about-content animate-on-scroll delay-2">
+                    <span class="section-label">Sobre Nosotros</span>
+                    <h2>En <span>SOCALA</span> creemos en cada proyecto</h2>
+                    <p class="about-text">
+                        En SOCALA creemos que cada proyecto comienza con esfuerzo, sueños y ganas de salir adelante. Por eso trabajamos para ofrecer materiales de construcción confiables, atención responsable y soluciones prácticas para quienes están construyendo, remodelando o empezando algo propio.
+                    </p>
+                    <p class="about-text">
+                        Ya seas albañil, maestro de obra o alguien que apenas está comenzando, en SOCALA encontrarás respaldo para sacar el trabajo adelante.
+                    </p>
+                    <p class="about-text">
+                        Porque construir no solo se trata de cemento, hierro o bloques… también se trata de <strong>confianza</strong>, <strong>apoyo</strong> y de tener a alguien que la soca junto a vos cuando la obra no puede parar.
+                    </p>
+                    <div class="about-quote">
+                        <p>"La Fuerza Detrás de Cada Obra"</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- WHY CHOOSE SECTION -->
+    <section class="why-choose">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">¿Por qué elegirnos?</span>
+                <h2 class="section-title">La diferencia <span>SOCALA</span></h2>
+                <p class="section-subtitle">Más que materiales, ofrecemos una experiencia de compra confiable y cercana</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card animate-on-scroll delay-1">
+                    <div class="feature-icon"><i class="fas fa-bolt"></i></div>
+                    <h3 class="feature-title">Atención Rápida</h3>
+                    <p class="feature-desc">Estamos listos para ayudarte con tu cotización. Sabemos que el tiempo en la obra es oro.</p>
+                </div>
+                <div class="feature-card animate-on-scroll delay-2">
+                    <div class="feature-icon"><i class="fas fa-shield-alt"></i></div>
+                    <h3 class="feature-title">Atención Responsable</h3>
+                    <p class="feature-desc">Cada cotización y pedido es manejado con seriedad y compromiso. Tu obra importa.</p>
+                </div>
+                <div class="feature-card animate-on-scroll delay-3">
+                    <div class="feature-icon"><i class="fas fa-award"></i></div>
+                    <h3 class="feature-title">Materiales de Calidad</h3>
+                    <p class="feature-desc">Trabajamos solo con productos que cumplen estándares. Construimos sobre confianza.</p>
+                </div>
+                <div class="feature-card animate-on-scroll delay-4">
+                    <div class="feature-icon"><i class="fas fa-calculator"></i></div>
+                    <h3 class="feature-title">Cotización Fácil</h3>
+                    <p class="feature-desc">Cotiza por WhatsApp en minutos. Sin complicaciones, sin esperas interminables.</p>
+                </div>
+                <div class="feature-card animate-on-scroll delay-5">
+                    <div class="feature-icon"><i class="fab fa-whatsapp"></i></div>
+                    <h3 class="feature-title">Atención por WhatsApp</h3>
+                    <p class="feature-desc">El canal más directo y cómodo. Escríbenos y estamos listos para ayudarte con tu cotización.</p>
+                </div>
+                <div class="feature-card animate-on-scroll delay-6">
+                    <div class="feature-icon"><i class="fas fa-heart"></i></div>
+                    <h3 class="feature-title">Buena Atención al Cliente</h3>
+                    <p class="feature-desc">Te tratamos como persona, no como número. Cercanía salvadoreña en cada interacción.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- PRODUCTS SECTION -->
+    <section class="products" id="productos">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-label">Catálogo</span>
+                <h2 class="section-title">Productos <span>Destacados</span></h2>
+                <p class="section-subtitle">Consulta disponibilidad y precio actualizado por WhatsApp</p>
+            </div>
+            <div class="products-grid">
+                <div class="product-card animate-on-scroll delay-1">
+                    <div class="product-image-wrapper">
+                        <img src="bloques.jpg" alt="Bloques de construcción SOCALA" class="product-image">
+                        <div class="product-overlay"><span class="product-badge">Disponible</span></div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Bloques de Concreto</h3>
+                        <p class="product-note"><i class="fab fa-whatsapp"></i>Consultar precio por WhatsApp</p>
+                    </div>
+                </div>
+                <div class="product-card animate-on-scroll delay-2">
+                    <div class="product-image-wrapper">
+                        <img src="cemento.jpg" alt="Cemento SOCALA" class="product-image">
+                        <div class="product-overlay"><span class="product-badge">Disponible</span></div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Cemento de Calidad</h3>
+                        <p class="product-note"><i class="fab fa-whatsapp"></i>Consultar precio por WhatsApp</p>
+                    </div>
+                </div>
+                <div class="product-card animate-on-scroll delay-3">
+                    <div class="product-image-wrapper">
+                        <img src="hierro.jpg" alt="Hierro de construcción SOCALA" class="product-image">
+                        <div class="product-overlay"><span class="product-badge">Disponible</span></div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Hierro y Varilla</h3>
+                        <p class="product-note"><i class="fab fa-whatsapp"></i>Consultar precio por WhatsApp</p>
+                    </div>
+                </div>
+                <div class="product-card animate-on-scroll delay-4">
+                    <div class="product-image-wrapper">
+                        <img src="arena.jpg" alt="Arena SOCALA" class="product-image">
+                        <div class="product-overlay"><span class="product-badge">Disponible</span></div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Arena Fina y Gruesa</h3>
+                        <p class="product-note"><i class="fab fa-whatsapp"></i>Consultar precio por WhatsApp</p>
+                    </div>
+                </div>
+                <div class="product-card animate-on-scroll delay-5">
+                    <div class="product-image-wrapper">
+                        <img src="grava.jpg" alt="Grava SOCALA" class="product-image">
+                        <div class="product-overlay"><span class="product-badge">Disponible</span></div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Grava Triturada</h3>
+                        <p class="product-note"><i class="fab fa-whatsapp"></i>Consultar precio por WhatsApp</p>
+                    </div>
+                </div>
+                <div class="product-card animate-on-scroll delay-6">
+                    <div class="product-image-wrapper">
+                        <img src="herramientas.jpg" alt="Herramientas SOCALA" class="product-image">
+                        <div class="product-overlay"><span class="product-badge">Disponible</span></div>
+                    </div>
+                    <div class="product-content">
+                        <h3 class="product-title">Herramientas Profesionales</h3>
+                        <p class="product-note"><i class="fab fa-whatsapp"></i>Consultar precio por WhatsApp</p>
+                    </div>
+                </div>
+            </div>
+            <div class="products-footer animate-on-scroll">
+                <p><strong>¿Necesitas otro material?</strong> Escríbenos por WhatsApp y te ayudamos a conseguirlo.</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA SECTION -->
+    <section class="cta-section">
+        <div class="cta-glow"></div>
+        <div class="cta-content">
+            <h2 class="cta-title">¿Necesitas materiales para tu obra?</h2>
+            <p class="cta-subtitle">Escríbenos y te ayudamos a cotizar rápido. Atención personalizada para tu proyecto.</p>
+            <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20materiales%20de%20construcción." class="cta-btn" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+                Hablar por WhatsApp
+            </a>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <img src="logo-socala.png" alt="SOCALA" class="footer-logo">
+                <p>La fuerza detrás de cada obra. Materiales, herramientas y logística para tu construcción en San Juan Opico, La Libertad, El Salvador.</p>
+                <div class="footer-social">
+                    <a href="#" class="social-link" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link" aria-label="TikTok"><i class="fab fa-tiktok"></i></a>
+                </div>
+            </div>
+            <div class="footer-nav">
+                <h4 class="footer-title">Navegación</h4>
+                <ul class="footer-links">
+                    <li><a href="#inicio"><i class="fas fa-chevron-right"></i> Inicio</a></li>
+                    <li><a href="#materiales"><i class="fas fa-chevron-right"></i> Materiales</a></li>
+                    <li><a href="#servicios"><i class="fas fa-chevron-right"></i> Servicios</a></li>
+                    <li><a href="#nosotros"><i class="fas fa-chevron-right"></i> Nosotros</a></li>
+                    <li><a href="#productos"><i class="fas fa-chevron-right"></i> Productos</a></li>
+                </ul>
+            </div>
+            <div class="footer-nav">
+                <h4 class="footer-title">Materiales</h4>
+                <ul class="footer-links">
+                    <li><a href="#materiales"><i class="fas fa-chevron-right"></i> Bloques</a></li>
+                    <li><a href="#materiales"><i class="fas fa-chevron-right"></i> Cemento</a></li>
+                    <li><a href="#materiales"><i class="fas fa-chevron-right"></i> Hierro</a></li>
+                    <li><a href="#materiales"><i class="fas fa-chevron-right"></i> Herramientas</a></li>
+                </ul>
+            </div>
+            <div class="footer-contact">
+                <h4 class="footer-title">Contacto</h4>
+                <p><i class="fas fa-envelope"></i> ventas@socalasv.com</p>
+                <p><i class="fab fa-whatsapp"></i> 7058-0292</p>
+                <p><i class="fas fa-map-marker-alt"></i> San Juan Opico, La Libertad, El Salvador</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>© 2026 <span>SOCALA</span>. Marca cuscatleca. Todos los derechos reservados. La fuerza detrás de cada obra.</p>
+        </div>
+    </footer>
+
+    <!-- FLOATING WHATSAPP -->
+    <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20materiales%20de%20construcción." class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+        <i class="fab fa-whatsapp"></i>
+        <span class="whatsapp-tooltip">¡Cotiza ahora!</span>
+    </a>
+
+    <script>
+        const navbar = document.getElementById('navbar');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) { navbar.classList.add('scrolled'); }
+            else { navbar.classList.remove('scrolled'); }
+        });
+
+        const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+        const navLinks = document.getElementById('nav-links');
+        mobileMenuBtn.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+            const icon = mobileMenuBtn.querySelector('i');
+            if (navLinks.classList.contains('active')) {
+                icon.classList.remove('fa-bars'); icon.classList.add('fa-times');
+            } else {
+                icon.classList.remove('fa-times'); icon.classList.add('fa-bars');
+            }
+        });
+
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
+                mobileMenuBtn.querySelector('i').classList.remove('fa-times');
+                mobileMenuBtn.querySelector('i').classList.add('fa-bars');
+            });
+        });
+
+        const observerOptions = { threshold: 0.1, rootMargin: '0px 0px -50px 0px' };
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => { if (entry.isIntersecting) { entry.target.classList.add('visible'); } });
+        }, observerOptions);
+        document.querySelectorAll('.animate-on-scroll').forEach(el => { observer.observe(el); });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) { target.scrollIntoView({ behavior: 'smooth', block: 'start' }); }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const scrolled = window.pageYOffset;
+            const heroBg = document.querySelector('.hero-bg');
+            if (heroBg) { heroBg.style.transform = `translateY(${scrolled * 0.4}px)`; }
+        });
+    </script>
+</body>
+</html>
