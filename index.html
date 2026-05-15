@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOCALA - La Fuerza Detrás de Cada Obra | Materiales y Soluciones para Construcción</title>
-    <meta name="description" content="SOCALA - Materiales, herramientas y logística para tu obra en San Juan Opico, La Libertad, El Salvador. Marca Cuscatleca. Entregas coordinadas, cotización directa y apoyo profesional.">
+    <meta name="description" content="SOCALA - Materiales y soluciones para construcción en El Salvador. Atención rápida, cotización directa y respaldo para cada proyecto.">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Playfair+Display:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
@@ -57,7 +57,7 @@
         .nav-links a::after { content: ''; position: absolute; bottom: -6px; left: 0; width: 0; height: 2px; background: var(--sky-blue); transition: width 0.3s ease; }
         .nav-links a:hover::after { width: 100%; }
         .nav-links a:hover { color: var(--sky-bright); }
-        .nav-cta { background: var(--sky-blue); color: var(--white) !important; padding: 0.6rem 1.5rem; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; }
+        .nav-cta { background: var(--sky-blue); color: var(--white) !important; padding: 0.55rem 1.35rem; border-radius: 50px; font-weight: 600; transition: all 0.3s ease; }
         .nav-cta::after { display: none !important; }
         .nav-cta:hover { background: var(--sky-bright); transform: translateY(-2px); box-shadow: 0 8px 25px rgba(0, 168, 232, 0.4); }
         .mobile-menu-btn { display: none; background: none; border: none; color: var(--white); font-size: 1.5rem; cursor: pointer; }
@@ -160,7 +160,7 @@
         }
         .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 4rem; align-items: center; }
         .about-image-wrapper { position: relative; }
-        .about-image { width: 100%; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); }
+        .about-image { width: 100%; max-height: 500px; object-fit: cover; border-radius: 20px; box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); }
         .about-image-accent { position: absolute; bottom: -20px; right: -20px; width: 150px; height: 150px;
             border: 3px solid var(--gold); border-radius: 20px; z-index: -1;
         }
@@ -280,6 +280,7 @@
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; max-width: 1200px; margin: 0 auto 3rem; }
         .footer-brand { max-width: 300px; }
         .footer-logo { height: 60px; margin-bottom: 1rem; }
+        .footer-brand-text { display: inline-block; margin-bottom: 1rem; }
         .footer-brand p { color: var(--gray); font-size: 0.95rem; line-height: 1.7; }
         .footer-title { font-size: 1rem; font-weight: 700; margin-bottom: 1.5rem; color: var(--white); text-transform: uppercase; letter-spacing: 1px; }
         .footer-links { list-style: none; }
@@ -376,10 +377,10 @@
         <div class="hero-content">
             <div class="hero-kicker">SOCALA · El Salvador</div>
             <h1 class="hero-title">
-                Materiales y Soluciones<br>para tu <span>Obra</span>
+                La Fuerza Detrás<br>de Cada <span>Obra</span>
             </h1>
             <p class="hero-subtitle">
-                Atención rápida, cotización directa y respaldo para cada proyecto.
+                Materiales confiables, cotización directa y respaldo para tu proyecto.
             </p>
             <div class="hero-buttons">
                 <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20materiales%20de%20construcción." class="btn btn-primary" target="_blank">
@@ -466,13 +467,13 @@
             <div class="section-header animate-on-scroll">
                 <span class="section-label">Nuestros Servicios</span>
                 <h2 class="section-title">Más que <span>materiales</span></h2>
-                <p class="section-subtitle">Soluciones operativas para que tu obra avance sin detenerse</p>
+                <p class="section-subtitle">Atención clara, apoyo práctico y cotización directa para tu proyecto</p>
             </div>
             <div class="services-grid">
                 <div class="service-card animate-on-scroll delay-1">
-                    <div class="service-icon"><i class="fas fa-truck"></i></div>
-                    <h3 class="service-title">Entregas Coordinadas</h3>
-                    <p class="service-desc">Llevamos tus materiales directo a la obra. Coordinamos la fecha de entrega para que no pierdas tiempo.</p>
+                    <div class="service-icon"><i class="fas fa-user-check"></i></div>
+                    <h3 class="service-title">Atención Personalizada</h3>
+                    <p class="service-desc">Escuchamos lo que necesitas y te ayudamos a cotizar de forma clara, rápida y responsable.</p>
                 </div>
                 <div class="service-card animate-on-scroll delay-2">
                     <div class="service-icon"><i class="fas fa-bolt"></i></div>
@@ -499,6 +500,7 @@
             <div class="about-grid">
                 <div class="about-image-wrapper animate-on-scroll">
                     <img src="cemento.png" alt="SOCALA - Materiales de construcción El Salvador" class="about-image">
+                    <div class="about-image-accent"></div>
                 </div>
                 <div class="about-content animate-on-scroll delay-2">
                     <span class="section-label">Sobre Nosotros</span>
@@ -510,7 +512,7 @@
                         Ya seas albañil, maestro de obra o alguien que apenas está comenzando, en SOCALA encontrarás respaldo para sacar el trabajo adelante.
                     </p>
                     <p class="about-text">
-                        Porque construir no solo se trata de cemento, hierro o bloques… también se trata de <strong>confianza</strong>, <strong>apoyo</strong> y de tener una solución que respalde tu obra cuando no puede parar.
+                        Construir no solo se trata de cemento, hierro o bloques. También se trata de <strong>confianza</strong>, <strong>respaldo</strong> y compromiso para sacar cada proyecto adelante.
                     </p>
                     <div class="about-quote">
                         <p>"La Fuerza Detrás de Cada Obra"</p>
@@ -575,7 +577,7 @@
                 <div class="product-card animate-on-scroll delay-1">
                     <div class="product-image-wrapper">
                         <img src="bloques.png" alt="Bloques de construcción SOCALA" class="product-image">
-                        <div class="product-overlay"><span class="product-badge">Disponible</span></div>
+                        <div class="product-overlay"><span class="product-badge">Cotizable</span></div>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Bloques de Concreto</h3>
@@ -585,7 +587,7 @@
                 <div class="product-card animate-on-scroll delay-2">
                     <div class="product-image-wrapper">
                         <img src="cemento.png" alt="Cemento SOCALA" class="product-image">
-                        <div class="product-overlay"><span class="product-badge">Disponible</span></div>
+                        <div class="product-overlay"><span class="product-badge">Cotizable</span></div>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Cemento de Calidad</h3>
@@ -595,46 +597,16 @@
                 <div class="product-card animate-on-scroll delay-3">
                     <div class="product-image-wrapper">
                         <img src="hierro.png" alt="Hierro de construcción SOCALA" class="product-image">
-                        <div class="product-overlay"><span class="product-badge">Disponible</span></div>
+                        <div class="product-overlay"><span class="product-badge">Cotizable</span></div>
                     </div>
                     <div class="product-content">
                         <h3 class="product-title">Hierro y Varilla</h3>
                         <p class="product-note"><i class="fab fa-whatsapp"></i>Consultar precio por WhatsApp</p>
                     </div>
                 </div>
-                <div class="product-card animate-on-scroll delay-4">
-                    <div class="product-image-wrapper">
-                        <img src="arena.png" alt="Arena SOCALA" class="product-image">
-                        <div class="product-overlay"><span class="product-badge">Disponible</span></div>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">Arena Fina y Gruesa</h3>
-                        <p class="product-note"><i class="fab fa-whatsapp"></i>Consultar precio por WhatsApp</p>
-                    </div>
-                </div>
-                <div class="product-card animate-on-scroll delay-5">
-                    <div class="product-image-wrapper">
-                        <img src="grava.png" alt="Grava SOCALA" class="product-image">
-                        <div class="product-overlay"><span class="product-badge">Disponible</span></div>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">Grava Triturada</h3>
-                        <p class="product-note"><i class="fab fa-whatsapp"></i>Consultar precio por WhatsApp</p>
-                    </div>
-                </div>
-                <div class="product-card animate-on-scroll delay-6">
-                    <div class="product-image-wrapper">
-                        <img src="herramientas.png" alt="Herramientas SOCALA" class="product-image">
-                        <div class="product-overlay"><span class="product-badge">Disponible</span></div>
-                    </div>
-                    <div class="product-content">
-                        <h3 class="product-title">Herramientas Profesionales</h3>
-                        <p class="product-note"><i class="fab fa-whatsapp"></i>Consultar precio por WhatsApp</p>
-                    </div>
-                </div>
             </div>
             <div class="products-footer animate-on-scroll">
-                <p><strong>¿Necesitas otro material?</strong> Escríbenos por WhatsApp y te ayudamos a conseguirlo.</p>
+                <p><strong>También cotizamos arena, grava, herramientas y otros materiales.</strong> Escríbenos por WhatsApp y cuéntanos qué necesita tu proyecto.</p>
             </div>
         </div>
     </section>
@@ -656,19 +628,19 @@
     <footer class="footer">
         <div class="footer-grid">
             <div class="footer-brand">
-                <img src="logo-socala.png" alt="SOCALA" class="footer-logo">
-                <p>La fuerza detrás de cada obra. Materiales, herramientas y logística para tu construcción en San Juan Opico, La Libertad, El Salvador.</p>
+                <a href="#inicio" class="brand-text footer-brand-text" aria-label="SOCALA inicio"><span>S</span>OCALA</a>
+                <p>La fuerza detrás de cada obra. Materiales y soluciones para construcción en San Juan Opico, La Libertad, El Salvador.</p>
                 <div class="footer-social">
-    <a href="https://facebook.com/socalasv" class="social-link" aria-label="Facebook" target="_blank">
-        <i class="fab fa-facebook-f"></i>
-    </a>
-    <a href="https://instagram.com/socalasv" class="social-link" aria-label="Instagram" target="_blank">
-        <i class="fab fa-instagram"></i>
-    </a>
-    <a href="https://tiktok.com/@socalasv" class="social-link" aria-label="TikTok" target="_blank">
-        <i class="fab fa-tiktok"></i>
-    </a>
-</div>
+                    <a href="https://facebook.com/socalasv" class="social-link" aria-label="Facebook" target="_blank">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="https://instagram.com/socalasv" class="social-link" aria-label="Instagram" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="https://tiktok.com/@socalasv" class="social-link" aria-label="TikTok" target="_blank">
+                        <i class="fab fa-tiktok"></i>
+                    </a>
+                </div>
             </div>
             <div class="footer-nav">
                 <h4 class="footer-title">Navegación</h4>
@@ -697,7 +669,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <p>© 2026 <span>SOCALA</span>. Marca Cuscatleca. Todos los derechos reservados. La fuerza detrás de cada obra.</p>
+            <p>© 2026 <span>SOCALA</span>. Marca cuscatleca. Todos los derechos reservados. La fuerza detrás de cada obra.</p>
         </div>
     </footer>
 
