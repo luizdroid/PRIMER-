@@ -4,9 +4,8 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>SOCALA - La Fuerza Detrás de Cada Obra</title>
-    <meta name="description" content="SOCALA - Materiales, herramientas y logística para tu obra. Marca cuscatleca. Cotización directa por WhatsApp. San Juan Opico, La Libertad, El Salvador.">
+    <meta name="description" content="SOCALA - Materiales y herramientas para tu obra. Marca cuscatleca. Cotización directa por WhatsApp. San Juan Opico, La Libertad, El Salvador.">
 
-    <!-- FAVICON: guarda la imagen de la S como favicon.png -->
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
 
@@ -36,6 +35,100 @@
             50% { box-shadow: 0 0 0 18px rgba(30, 160, 255, 0); }
         }
 
+        /* NAVBAR */
+        .navbar {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 1000;
+            padding: 1rem 2rem;
+            background: rgba(7, 21, 38, 0.82);
+            backdrop-filter: blur(16px);
+            border-bottom: 1px solid rgba(255,255,255,0.10);
+        }
+        .nav-inner {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            position: relative;
+        }
+        .nav-logo {
+            color: #fff;
+            text-decoration: none;
+            font-size: 1.35rem;
+            font-weight: 950;
+            letter-spacing: 2px;
+            line-height: 1;
+        }
+        .nav-logo span { color: #1EA0FF; }
+        .nav-links {
+            display: flex;
+            align-items: center;
+            gap: 1.3rem;
+        }
+        .nav-links a {
+            color: rgba(255,255,255,0.82);
+            text-decoration: none;
+            font-size: 0.92rem;
+            font-weight: 700;
+            transition: 0.25s ease;
+        }
+        .nav-links a:hover { color: #1EA0FF; }
+        .nav-whatsapp {
+            padding: 0.65rem 1rem;
+            border-radius: 999px;
+            background: #1EA0FF;
+            color: #fff !important;
+            box-shadow: 0 10px 26px rgba(30,160,255,0.25);
+        }
+        .menu-toggle {
+            display: none;
+            width: 44px;
+            height: 44px;
+            border-radius: 14px;
+            border: 1px solid rgba(255,255,255,0.18);
+            background: rgba(255,255,255,0.08);
+            color: #fff;
+            font-size: 1.35rem;
+            cursor: pointer;
+        }
+        .mobile-menu {
+            display: none;
+            position: absolute;
+            top: calc(100% + 0.75rem);
+            right: 0;
+            width: min(280px, calc(100vw - 2rem));
+            padding: 0.85rem;
+            border-radius: 22px;
+            background: rgba(7, 21, 38, 0.96);
+            border: 1px solid rgba(255,255,255,0.12);
+            box-shadow: 0 24px 60px rgba(0,0,0,0.28);
+            backdrop-filter: blur(18px);
+        }
+        .mobile-menu a {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 0.85rem 0.95rem;
+            color: rgba(255,255,255,0.88);
+            text-decoration: none;
+            font-weight: 800;
+            border-radius: 14px;
+        }
+        .mobile-menu a:hover { background: rgba(255,255,255,0.08); color: #1EA0FF; }
+        .mobile-menu .mobile-cta {
+            margin-top: 0.35rem;
+            background: #1EA0FF;
+            color: #fff;
+            justify-content: center;
+            gap: 0.5rem;
+        }
+        .mobile-menu.active { display: block; }
+
         /* HERO */
         .hero {
             min-height: 100vh;
@@ -43,7 +136,7 @@
             align-items: center;
             justify-content: center;
             text-align: center;
-            padding: 2rem;
+            padding: 7rem 2rem 3rem;
             position: relative;
             overflow: hidden;
             background:
@@ -58,15 +151,24 @@
                 linear-gradient(rgba(255, 255, 255, 0.035) 1px, transparent 1px),
                 linear-gradient(90deg, rgba(255, 255, 255, 0.035) 1px, transparent 1px);
             background-size: 58px 58px;
-            opacity: 0.65;
+            opacity: 0.28;
             pointer-events: none;
         }
         .hero-content {
             position: relative;
             z-index: 2;
-            max-width: 900px;
+            max-width: 920px;
             animation: fadeInUp 1s ease-out;
         }
+        .hero-logo {
+            font-size: clamp(2.2rem, 6vw, 4.4rem);
+            font-weight: 950;
+            letter-spacing: 4px;
+            color: #fff;
+            margin-bottom: 0.75rem;
+            text-shadow: 0 18px 45px rgba(0,0,0,0.25);
+        }
+        .hero-logo span { color: #1EA0FF; }
         .hero-kicker {
             display: inline-block;
             padding: 0.55rem 1.2rem;
@@ -81,7 +183,7 @@
             text-transform: uppercase;
         }
         .hero-title {
-            font-size: clamp(3rem, 7vw, 6rem);
+            font-size: clamp(2.7rem, 6.5vw, 5.7rem);
             font-weight: 900;
             line-height: 0.95;
             margin-bottom: 1rem;
@@ -95,7 +197,7 @@
             animation: shimmer 4s linear infinite;
         }
         .hero-subtitle {
-            font-size: clamp(1.3rem, 2vw, 2rem);
+            font-size: clamp(1.2rem, 2vw, 1.8rem);
             font-weight: 900;
             margin-bottom: 1rem;
             background: linear-gradient(135deg, #1EA0FF, #7DD3FC, #FFFFFF, #1EA0FF);
@@ -105,7 +207,7 @@
             animation: shimmer 4s linear infinite;
         }
         .hero-note {
-            max-width: 650px;
+            max-width: 680px;
             margin: 0 auto 2rem;
             color: rgba(255, 255, 255, 0.84);
             font-size: 1.05rem;
@@ -120,10 +222,11 @@
         .btn {
             display: inline-flex;
             align-items: center;
+            justify-content: center;
             gap: 0.6rem;
             padding: 1rem 1.6rem;
             border-radius: 999px;
-            font-weight: 700;
+            font-weight: 800;
             text-decoration: none;
             transition: 0.3s ease;
             border: none;
@@ -151,18 +254,9 @@
         }
 
         /* SECCIONES CLARAS */
-        .section-soft {
-            background: #F5F9FF;
-            padding: 5rem 2rem;
-        }
-        .container {
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .section-head {
-            max-width: 720px;
-            margin-bottom: 2.4rem;
-        }
+        .section-soft { background: #F5F9FF; padding: 4.6rem 2rem; }
+        .container { max-width: 1200px; margin: 0 auto; }
+        .section-head { max-width: 720px; margin-bottom: 2.2rem; }
         .label {
             display: inline-block;
             margin-bottom: 0.8rem;
@@ -176,24 +270,19 @@
             font-weight: 900;
         }
         .section-title {
-            font-size: clamp(2rem, 4vw, 3.4rem);
+            font-size: clamp(2rem, 4vw, 3.25rem);
             line-height: 1.05;
             color: #001F6B;
             margin-bottom: 0.8rem;
             font-weight: 900;
         }
         .section-title span { color: #1EA0FF; }
-        .section-copy {
-            color: #475569;
-            font-size: 1.05rem;
-        }
+        .section-copy { color: #475569; font-size: 1.05rem; }
+        .brand-highlight { color: #1EA0FF; font-weight: 900; }
+        .strong-highlight { color: #001F6B; font-weight: 900; }
 
         /* MATERIALES */
-        .materials-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.2rem;
-        }
+        .materials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
         .material-card {
             background: #fff;
             border-radius: 24px;
@@ -202,44 +291,46 @@
             border: 1px solid rgba(226, 232, 240, 0.8);
             transition: all 0.4s ease;
         }
-        .material-card:hover {
-            transform: translateY(-8px);
-            box-shadow: 0 20px 50px rgba(30, 160, 255, 0.12);
-        }
-        .material-card img {
-            width: 100%;
-            height: 220px;
-            object-fit: cover;
-            display: block;
-            transition: transform 0.6s ease;
-        }
+        .material-card:hover { transform: translateY(-8px); box-shadow: 0 20px 50px rgba(30, 160, 255, 0.12); }
+        .material-card img { width: 100%; height: 210px; object-fit: cover; display: block; transition: transform 0.6s ease; }
         .material-card:hover img { transform: scale(1.05); }
         .material-content { padding: 1.25rem; }
-        .material-content h3 {
-            color: #001F6B;
-            font-size: 1.25rem;
-            margin-bottom: 0.3rem;
-        }
-        .material-content p {
-            color: #64748B;
-            font-size: 0.95rem;
-        }
+        .material-content h3 { color: #001F6B; font-size: 1.25rem; margin-bottom: 0.3rem; }
+        .material-content p { color: #64748B; font-size: 0.95rem; }
         .more-materials {
-            margin-top: 1.4rem;
-            padding: 1.15rem 1.3rem;
-            border-radius: 18px;
-            background: #fff;
-            border: 1px solid #E2E8F0;
-            color: #64748B;
-            font-weight: 600;
-            text-align: center;
+            margin-top: 1.35rem;
+            padding: 1.3rem 1.45rem;
+            border-radius: 24px;
+            background: linear-gradient(135deg, #1EA0FF, #67C5FF);
+            border: 1px solid rgba(255,255,255,0.5);
+            box-shadow: 0 18px 40px rgba(30, 160, 255, 0.20);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 1rem;
+            flex-wrap: wrap;
+            transition: 0.35s ease;
         }
+        .more-materials:hover { transform: translateY(-4px); box-shadow: 0 24px 52px rgba(30, 160, 255, 0.28); }
+        .more-materials p { color: #fff; font-weight: 900; font-size: 1.08rem; margin: 0; }
+        .more-materials span { color: #001F6B; font-weight: 950; }
+        .mini-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.82rem 1.18rem;
+            border-radius: 999px;
+            background: #001F6B;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 900;
+            box-shadow: 0 10px 24px rgba(0, 31, 107, 0.22);
+            transition: 0.3s ease;
+        }
+        .mini-btn:hover { background: #FFFFFF; color: #001F6B; }
 
         /* SOBRE SOCALA */
-        .about-wrap {
-            background: #F5F9FF;
-            padding: 5rem 2rem;
-        }
+        .about-wrap { background: #F5F9FF; padding: 4.6rem 2rem; }
         .about-short {
             display: grid;
             grid-template-columns: 0.9fr 1.1fr;
@@ -250,7 +341,7 @@
         }
         .about-short img {
             width: 100%;
-            height: 430px;
+            height: 410px;
             object-fit: cover;
             object-position: center;
             border-radius: 28px;
@@ -258,23 +349,18 @@
         }
         .quote-box {
             margin-top: 1.6rem;
-            background: #001F6B;
+            background: linear-gradient(135deg, #001F6B, #003399);
             color: #fff;
-            padding: 1.35rem;
-            border-radius: 22px;
-            font-size: 1.2rem;
+            padding: 1rem 1.25rem;
+            border-radius: 18px;
+            font-size: 1.08rem;
             font-weight: 900;
+            box-shadow: 0 14px 32px rgba(0, 31, 107, 0.18);
+            border-left: 5px solid #1EA0FF;
         }
 
         /* POR QUÉ SOCALA */
-        .features {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1.2rem;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 2rem 5rem;
-        }
+        .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; max-width: 1200px; margin: 0 auto; padding: 0 2rem 4.6rem; }
         .feature {
             background: #fff;
             padding: 1.6rem;
@@ -283,10 +369,7 @@
             box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
             transition: all 0.4s ease;
         }
-        .feature:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 20px 45px rgba(30, 160, 255, 0.1);
-        }
+        .feature:hover { transform: translateY(-6px); box-shadow: 0 20px 45px rgba(30, 160, 255, 0.1); }
         .feature i {
             width: 50px;
             height: 50px;
@@ -300,30 +383,17 @@
             margin-bottom: 1rem;
             box-shadow: 0 8px 20px rgba(30, 160, 255, 0.3);
         }
-        .feature h3 {
-            color: #001F6B;
-            margin-bottom: 0.4rem;
-            font-size: 1.15rem;
-        }
-        .feature p {
-            color: #64748B;
-            font-size: 0.95rem;
-        }
+        .feature h3 { color: #001F6B; margin-bottom: 0.4rem; font-size: 1.15rem; }
+        .feature p { color: #64748B; font-size: 0.95rem; }
 
-        /* CTA - HIERRO DESVANECIDO */
-        .cta {
-            padding: 5.5rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-            background: #071526;
-        }
+        /* CTA */
+        .cta { padding: 5rem 2rem; text-align: center; position: relative; overflow: hidden; background: #071526; }
         .cta::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: url('hierro-fondo.png') center/cover;
-            opacity: 0.14;
+            background: url('hierro.png') center/cover;
+            opacity: 0.13;
             filter: grayscale(100%) contrast(120%);
             pointer-events: none;
         }
@@ -338,73 +408,52 @@
             background-size: auto, 60px 60px, 60px 60px;
             pointer-events: none;
         }
-        .cta-content {
-            position: relative;
-            z-index: 2;
-            max-width: 700px;
-            margin: 0 auto;
-        }
-        .cta h2 {
-            font-size: clamp(2rem, 4vw, 3rem);
-            font-weight: 900;
-            margin-bottom: 1rem;
-            line-height: 1.1;
-        }
-        .cta p {
-            color: rgba(255, 255, 255, 0.84);
-            font-size: 1.1rem;
+        .cta-content { position: relative; z-index: 2; max-width: 700px; margin: 0 auto; }
+        .cta h2 { font-size: clamp(2rem, 4vw, 3rem); font-weight: 900; margin-bottom: 1rem; line-height: 1.1; }
+        .cta p { color: rgba(255, 255, 255, 0.84); font-size: 1.08rem; margin-bottom: 0.3rem; }
+        .cta-brand-line {
+            display: inline-block;
+            color: #7DD3FC;
+            font-size: clamp(1.15rem, 2.5vw, 1.6rem);
+            font-weight: 950;
             margin-bottom: 2rem;
+            position: relative;
+            text-shadow: 0 10px 30px rgba(30,160,255,0.25);
+        }
+        .cta-brand-line::after {
+            content: "";
+            position: absolute;
+            left: 50%;
+            bottom: -0.35rem;
+            transform: translateX(-50%);
+            width: 72%;
+            height: 3px;
+            border-radius: 999px;
+            background: linear-gradient(90deg, transparent, #1EA0FF, transparent);
         }
 
-        /* FOOTER - HIERRO MUY SUAVE */
-        .footer {
-            background: #071526;
-            color: rgba(255, 255, 255, 0.72);
-            padding: 3rem 2rem 2rem;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
+        /* FOOTER */
+        .footer { background: #071526; color: rgba(255, 255, 255, 0.72); padding: 3rem 2rem 2rem; position: relative; overflow: hidden; text-align: center; }
         .footer::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: url('hierro-fondo.png') center/cover;
-            opacity: 0.08;
+            background: url('hierro.png') center/cover;
+            opacity: 0.07;
             filter: grayscale(100%) contrast(120%);
             pointer-events: none;
         }
-        .footer::after {
-            content: "";
-            position: absolute;
-            inset: 0;
-            background: linear-gradient(rgba(7, 21, 38, 0.94), rgba(7, 21, 38, 0.985));
-            pointer-events: none;
-        }
-        .footer > * {
-            position: relative;
-            z-index: 2;
-        }
-        .footer-brand {
-            font-size: 1.8rem;
-            font-weight: 900;
-            color: #fff;
-            letter-spacing: 2px;
-            margin-bottom: 0.5rem;
-        }
+        .footer::after { content: ""; position: absolute; inset: 0; background: linear-gradient(rgba(7, 21, 38, 0.94), rgba(7, 21, 38, 0.985)); pointer-events: none; }
+        .footer-inner { position: relative; z-index: 2; max-width: 720px; margin: 0 auto; }
+        .footer-brand { font-size: 1.8rem; font-weight: 950; color: #fff; letter-spacing: 2px; margin-bottom: 0.8rem; }
         .footer-brand span { color: #1EA0FF; }
-        .footer-desc {
-            max-width: 500px;
-            margin: 0 auto 1.5rem;
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-        .footer-social {
-            display: flex;
-            gap: 0.8rem;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-        }
+        .footer-desc { font-size: 0.95rem; line-height: 1.8; margin-bottom: 1.35rem; }
+        .footer-desc strong { color: #fff; font-weight: 800; }
+        .footer-location { color: #7DD3FC; font-weight: 700; }
+        .footer-contact { font-size: 0.95rem; display: flex; justify-content: center; gap: 1rem; flex-wrap: wrap; margin-bottom: 1.2rem; }
+        .footer-contact a { color: #1EA0FF; text-decoration: none; transition: 0.25s ease; }
+        .footer-contact a:hover { color: #7DD3FC; }
+        .footer-social { display: flex; justify-content: center; gap: 0.8rem; margin-bottom: 1.5rem; }
         .social-link {
             width: 42px;
             height: 42px;
@@ -419,35 +468,25 @@
             font-size: 1rem;
             transition: all 0.3s ease;
         }
-        .social-link:hover {
-            background: #1EA0FF;
-            transform: translateY(-3px);
-        }
-        .footer-contact {
-            margin-bottom: 1.5rem;
-            font-size: 0.95rem;
-        }
-        .footer-contact a {
-            color: #1EA0FF;
-            text-decoration: none;
-        }
-        .footer-contact a:hover { text-decoration: underline; }
+        .social-link:hover { background: #1EA0FF; transform: translateY(-3px); }
         .footer-bottom {
+            position: relative;
+            z-index: 2;
+            max-width: 1200px;
+            margin: 0 auto;
             border-top: 1px solid rgba(255, 255, 255, 0.1);
             padding-top: 1.5rem;
+            text-align: center;
             font-size: 0.9rem;
             color: rgba(255, 255, 255, 0.55);
         }
-        .footer-bottom span {
-            color: #1EA0FF;
-            font-weight: 700;
-        }
+        .footer-bottom span { color: #1EA0FF; font-weight: 700; }
 
         /* WHATSAPP FLOAT */
         .whatsapp-float {
             position: fixed;
             right: 1.4rem;
-            bottom: 1.4rem;
+            bottom: 1rem;
             z-index: 999;
             width: 58px;
             height: 58px;
@@ -463,51 +502,84 @@
             transition: all 0.4s ease;
             animation: pulse 2s infinite;
         }
-        .whatsapp-float:hover {
-            transform: scale(1.1) translateY(-5px);
-            box-shadow: 0 18px 40px rgba(30, 160, 255, 0.45);
-        }
+        .whatsapp-float:hover { transform: scale(1.1) translateY(-5px); box-shadow: 0 18px 40px rgba(30, 160, 255, 0.45); }
 
         /* RESPONSIVE */
         @media (max-width: 860px) {
-            .hero { min-height: auto; padding-top: 6rem; padding-bottom: 4rem; }
-            .hero-title { font-size: clamp(2.5rem, 12vw, 3.5rem); }
-            .hero-subtitle { font-size: 1.1rem; }
+            .navbar { padding: 0.85rem 1.1rem; }
+            .nav-logo { font-size: 1.2rem; }
+            .desktop-link { display: none; }
+            .menu-toggle { display: inline-flex; align-items: center; justify-content: center; }
+            .nav-links { gap: 0; }
+            .nav-whatsapp { display: none; }
+            .hero { min-height: auto; padding: 8.5rem 1.2rem 4rem; }
+            .hero-content { width: 100%; text-align: center; }
+            .hero-logo { font-size: 2.35rem; letter-spacing: 3px; }
+            .hero-kicker { font-size: 0.66rem; letter-spacing: 1.5px; padding: 0.5rem 0.9rem; }
+            .hero-title { font-size: clamp(2.1rem, 9vw, 3rem); line-height: 1; }
+            .hero-subtitle { font-size: 1.05rem; margin-bottom: 1.5rem; }
             .hero-note { font-size: 0.95rem; }
-            .btn { width: 100%; justify-content: center; }
+            .btn { width: 100%; }
             .hero-buttons { flex-direction: column; align-items: center; }
+            .section-soft { padding: 4rem 1.2rem; }
             .materials-grid { grid-template-columns: 1fr; }
+            .more-materials { text-align: center; justify-content: center; }
+            .more-materials p { font-size: 1rem; }
             .about-wrap { padding: 4rem 1.2rem; }
             .about-short { grid-template-columns: 1fr; gap: 2rem; }
             .about-short img { height: 300px; }
-            .features { grid-template-columns: 1fr; }
+            .features { grid-template-columns: 1fr; padding: 0 1.2rem 4rem; }
             .cta { padding: 4.5rem 1.2rem; }
             .footer { padding: 2.5rem 1.2rem 2rem; }
+            .footer-contact { flex-direction: column; gap: 0.45rem; }
         }
     </style>
 </head>
 <body>
 
+    <!-- NAVBAR -->
+    <header class="navbar">
+        <div class="nav-inner">
+            <a href="#inicio" class="nav-logo"><span>S</span>OCALA</a>
+            <nav class="nav-links">
+                <a href="#inicio" class="desktop-link">Inicio</a>
+                <a href="#productos" class="desktop-link">Productos</a>
+                <a href="#cotizar" class="desktop-link">Cotizar</a>
+                <a href="#contacto" class="desktop-link">Contacto</a>
+                <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20pedir%20una%20cotización%20de%20materiales%20de%20construcción." class="nav-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
+            </nav>
+            <div class="mobile-menu" id="mobileMenu">
+                <a href="#inicio">Inicio <i class="fas fa-chevron-right"></i></a>
+                <a href="#productos">Productos <i class="fas fa-chevron-right"></i></a>
+                <a href="#cotizar">Cotizar <i class="fas fa-chevron-right"></i></a>
+                <a href="#contacto">Contacto <i class="fas fa-chevron-right"></i></a>
+                <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20pedir%20una%20cotización%20de%20materiales%20de%20construcción." class="mobile-cta" target="_blank"><i class="fab fa-whatsapp"></i> Pide tu cotización</a>
+            </div>
+        </div>
+    </header>
+
     <!-- HERO -->
-    <section class="hero">
+    <section class="hero" id="inicio">
         <div class="hero-content">
-            <div class="hero-kicker">SOCALA · EL SALVADOR</div>
+            <div class="hero-logo"><span>S</span>OCALA</div>
+            <div class="hero-kicker">EL SALVADOR · MATERIALES DE OBRA GRIS</div>
             <h1 class="hero-title">La fuerza detrás<br>de cada <span>obra.</span></h1>
             <p class="hero-subtitle">SOCALA la soca con vos.</p>
-            <p class="hero-note">Materiales confiables, cotización directa y respaldo para tu proyecto.<br>Estamos listos para ayudarte con tu cotización.</p>
+            <p class="hero-note">Materiales, herramientas y respaldo para que tu obra avance sin detenerse.<br>Estamos listos para ayudarte con tu cotización.</p>
             <div class="hero-buttons">
-                <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20materiales%20de%20construcción." class="btn btn-primary" target="_blank">
-                    <i class="fab fa-whatsapp"></i> Cotizar por WhatsApp
+                <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20pedir%20una%20cotización%20de%20materiales%20de%20construcción." class="btn btn-primary" target="_blank">
+                    <i class="fab fa-whatsapp"></i> Pide tu cotización
                 </a>
-                <a href="tel:+50370580292" class="btn btn-secondary">
-                    <i class="fas fa-phone"></i> Llamar ahora
+                <a href="#productos" class="btn btn-secondary">
+                    <i class="fas fa-layer-group"></i> Ver materiales
                 </a>
             </div>
         </div>
     </section>
 
     <!-- MATERIALES -->
-    <section class="section-soft">
+    <section class="section-soft" id="productos">
         <div class="container">
             <div class="section-head">
                 <span class="label">Materiales principales</span>
@@ -528,7 +600,13 @@
                     <div class="material-content"><h3>Hierro y Varilla</h3><p>Material de refuerzo para estructuras y obra gris.</p></div>
                 </article>
             </div>
-            <div class="more-materials">También puedes cotizar arena, grava, herramientas y otros materiales para construcción.</div>
+
+            <div class="more-materials" id="cotizar">
+                <p>También puedes cotizar <span>arena, grava, tierra, cemento y herramientas.</span></p>
+                <a class="mini-btn" href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20arena,%20grava,%20tierra,%20cemento%20o%20herramientas." target="_blank">
+                    <i class="fab fa-whatsapp"></i> Pide tu cotización
+                </a>
+            </div>
         </div>
     </section>
 
@@ -539,8 +617,8 @@
             <div>
                 <span class="label">Sobre SOCALA</span>
                 <h2 class="section-title">No solo se trata de <span>materiales.</span></h2>
-                <p class="section-copy">En SOCALA creemos que cada proyecto comienza con esfuerzo, sueños y ganas de salir adelante. Por eso trabajamos para ofrecer materiales de construcción confiables, atención responsable y soluciones prácticas para quienes están construyendo, remodelando o empezando algo propio.</p>
-                <p class="section-copy">Ya seas albañil, maestro de obra o alguien que apenas está comenzando, en SOCALA encontrarás respaldo para sacar el trabajo adelante.</p>
+                <p class="section-copy">En <span class="brand-highlight">SOCALA</span> creemos que cada proyecto comienza con <span class="strong-highlight">esfuerzo</span>, <span class="strong-highlight">sueños</span> y ganas de salir adelante. Por eso trabajamos para ofrecer <span class="strong-highlight">materiales de construcción confiables</span>, atención responsable y soluciones prácticas para quienes están construyendo, remodelando o empezando algo propio.</p>
+                <p class="section-copy">Ya seas albañil, maestro de obra o alguien que apenas está comenzando, en <span class="brand-highlight">SOCALA</span> encontrarás <span class="strong-highlight">respaldo para sacar el trabajo adelante.</span></p>
                 <div class="quote-box">"La Fuerza Detrás de Cada Obra"</div>
             </div>
         </div>
@@ -577,33 +655,61 @@
     <section class="cta">
         <div class="cta-content">
             <h2>Contanos qué necesitás.</h2>
-            <p>Materiales, cantidades o dudas para tu obra. SOCALA la soca con vos.</p>
-            <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20materiales%20de%20construcción." class="btn btn-primary" target="_blank">
-                <i class="fab fa-whatsapp"></i> Hablar por WhatsApp
+            <p>Materiales, cantidades o dudas para tu obra.</p>
+            <div class="cta-brand-line">SOCALA la soca con vos.</div>
+            <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20pedir%20una%20cotización%20de%20materiales%20de%20construcción." class="btn btn-primary" target="_blank">
+                <i class="fab fa-whatsapp"></i> Pide tu cotización
             </a>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="footer">
-        <div class="footer-brand"><span>S</span>OCALA</div>
-        <p class="footer-desc">La fuerza detrás de cada obra. Materiales, herramientas y logística para tu construcción en San Juan Opico, La Libertad, El Salvador.</p>
-        <div class="footer-social">
-            <a href="https://www.facebook.com/socalasv" class="social-link" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
-            <a href="https://www.instagram.com/socalasv/" class="social-link" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
-            <a href="https://www.tiktok.com/@socalasv?lang=es-419" class="social-link" aria-label="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
-        </div>
-        <div class="footer-contact">
-            <i class="fab fa-whatsapp"></i> <a href="https://wa.me/50370580292">7058-0292</a> &nbsp;|&nbsp;
-            <i class="fas fa-envelope"></i> <a href="mailto:ventas@socalasv.com">ventas@socalasv.com</a>
+    <footer class="footer" id="contacto">
+        <div class="footer-inner">
+            <div class="footer-brand"><span>S</span>OCALA</div>
+            <p class="footer-desc">
+                <strong>La fuerza detrás de cada obra.</strong><br>
+                Materiales y herramientas para tu construcción.<br>
+                <span class="footer-location">San Juan Opico, La Libertad, El Salvador.</span>
+            </p>
+            <div class="footer-contact">
+                <a href="https://wa.me/50370580292"><i class="fab fa-whatsapp"></i> 7058-0292</a>
+                <a href="mailto:ventas@socalasv.com"><i class="fas fa-envelope"></i> ventas@socalasv.com</a>
+            </div>
+            <div class="footer-social">
+                <a href="https://www.facebook.com/socalasv" class="social-link" aria-label="Facebook" target="_blank"><i class="fab fa-facebook-f"></i></a>
+                <a href="https://www.instagram.com/socalasv/" class="social-link" aria-label="Instagram" target="_blank"><i class="fab fa-instagram"></i></a>
+                <a href="https://www.tiktok.com/@socalasv?lang=es-419" class="social-link" aria-label="TikTok" target="_blank"><i class="fab fa-tiktok"></i></a>
+            </div>
         </div>
         <div class="footer-bottom">© 2026 <span>SOCALA</span>. Marca cuscatleca. Todos los derechos reservados.</div>
     </footer>
 
     <!-- WHATSAPP FLOAT -->
-    <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20materiales%20de%20construcción." class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+    <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20pedir%20una%20cotización%20de%20materiales%20de%20construcción." class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
+
+    <script>
+        const menuToggle = document.getElementById('menuToggle');
+        const mobileMenu = document.getElementById('mobileMenu');
+
+        menuToggle.addEventListener('click', () => {
+            mobileMenu.classList.toggle('active');
+        });
+
+        mobileMenu.querySelectorAll('a').forEach(link => {
+            link.addEventListener('click', () => {
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        document.addEventListener('click', (event) => {
+            if (!menuToggle.contains(event.target) && !mobileMenu.contains(event.target)) {
+                mobileMenu.classList.remove('active');
+            }
+        });
+    </script>
 
 </body>
 </html>
