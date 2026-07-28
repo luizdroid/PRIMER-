@@ -3,8 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>SOCALA - La Fuerza Detrás de Cada Obra</title>
-    <meta name="description" content="SOCALA - Materiales y herramientas para tu obra. Marca cuscatleca. Cotización directa por WhatsApp. San Juan Opico, La Libertad, El Salvador.">
+    <title>SOCALA - Bloques para tu obra</title>
+    <meta name="description" content="SOCALA - Distribución de bloques de concreto para tu obra. Cotización directa por WhatsApp en El Salvador.">
 
     <link rel="icon" type="image/png" href="favicon.png">
     <link rel="apple-touch-icon" href="favicon.png">
@@ -281,8 +281,8 @@
         .brand-highlight { color: #1EA0FF; font-weight: 900; }
         .strong-highlight { color: #001F6B; font-weight: 900; }
 
-        /* MATERIALES */
-        .materials-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; }
+        /* BLOQUES */
+        .materials-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.2rem; }
         .material-card {
             background: #fff;
             border-radius: 24px;
@@ -297,6 +297,56 @@
         .material-content { padding: 1.25rem; }
         .material-content h3 { color: #001F6B; font-size: 1.25rem; margin-bottom: 0.3rem; }
         .material-content p { color: #64748B; font-size: 0.95rem; }
+        .block-visual {
+            height: 180px;
+            margin: 1rem 1rem 0;
+            border-radius: 18px;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(145deg, #D9DADA, #9CA3A5);
+            box-shadow: inset 0 0 25px rgba(0,0,0,0.13);
+        }
+        .block-visual::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            opacity: 0.12;
+            background-image: radial-gradient(#263238 0.7px, transparent 0.7px);
+            background-size: 5px 5px;
+        }
+        .block-hole {
+            position: absolute;
+            top: 20px;
+            bottom: 32px;
+            width: 34%;
+            border-radius: 11px;
+            background: linear-gradient(145deg, #545D60, #B8BDBE);
+            box-shadow: inset 6px 9px 15px rgba(0,0,0,0.45);
+        }
+        .block-hole:first-child { left: 10%; }
+        .block-hole:last-child { right: 10%; }
+        .block-tag {
+            display: inline-block;
+            margin-bottom: 0.45rem;
+            color: #1EA0FF;
+            font-size: 0.72rem;
+            font-weight: 900;
+            letter-spacing: 1.2px;
+        }
+        .product-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin-top: 1rem;
+            padding-top: 0.9rem;
+            border-top: 1px solid #E2E8F0;
+            color: #001F6B;
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 900;
+        }
+        .product-link i { color: #1EA0FF; }
         .more-materials {
             margin-top: 1.35rem;
             padding: 1.3rem 1.45rem;
@@ -329,70 +379,13 @@
         }
         .mini-btn:hover { background: #FFFFFF; color: #001F6B; }
 
-        /* SOBRE SOCALA */
-        .about-wrap { background: #F5F9FF; padding: 4.6rem 2rem; }
-        .about-short {
-            display: grid;
-            grid-template-columns: 0.9fr 1.1fr;
-            gap: 3rem;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-        .about-short img {
-            width: 100%;
-            height: 410px;
-            object-fit: cover;
-            object-position: center;
-            border-radius: 28px;
-            box-shadow: 0 18px 55px rgba(15, 23, 42, 0.14);
-        }
-        .quote-box {
-            margin-top: 1.6rem;
-            background: linear-gradient(135deg, #001F6B, #003399);
-            color: #fff;
-            padding: 1rem 1.25rem;
-            border-radius: 18px;
-            font-size: 1.08rem;
-            font-weight: 900;
-            box-shadow: 0 14px 32px rgba(0, 31, 107, 0.18);
-            border-left: 5px solid #1EA0FF;
-        }
-
-        /* POR QUÉ SOCALA */
-        .features { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.2rem; max-width: 1200px; margin: 0 auto; padding: 0 2rem 4.6rem; }
-        .feature {
-            background: #fff;
-            padding: 1.6rem;
-            border-radius: 22px;
-            border: 1px solid #E2E8F0;
-            box-shadow: 0 12px 32px rgba(15, 23, 42, 0.06);
-            transition: all 0.4s ease;
-        }
-        .feature:hover { transform: translateY(-6px); box-shadow: 0 20px 45px rgba(30, 160, 255, 0.1); }
-        .feature i {
-            width: 50px;
-            height: 50px;
-            border-radius: 16px;
-            background: #1EA0FF;
-            color: #fff;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            margin-bottom: 1rem;
-            box-shadow: 0 8px 20px rgba(30, 160, 255, 0.3);
-        }
-        .feature h3 { color: #001F6B; margin-bottom: 0.4rem; font-size: 1.15rem; }
-        .feature p { color: #64748B; font-size: 0.95rem; }
-
         /* CTA */
         .cta { padding: 5rem 2rem; text-align: center; position: relative; overflow: hidden; background: #071526; }
         .cta::before {
             content: "";
             position: absolute;
             inset: 0;
-            background: url('hierro.png') center/cover;
+            background: url('Trabajadores.png') center/cover;
             opacity: 0.24;
             filter: grayscale(100%) contrast(120%);
             pointer-events: none;
@@ -438,7 +431,7 @@
             content: "";
             position: absolute;
             inset: 0;
-            background: url('hierro.png') center/cover;
+            background: url('Trabajadores.png') center/cover;
             opacity: 0.16;
             filter: grayscale(100%) contrast(120%);
             pointer-events: none;
@@ -525,10 +518,6 @@
             .materials-grid { grid-template-columns: 1fr; }
             .more-materials { text-align: center; justify-content: center; }
             .more-materials p { font-size: 1rem; }
-            .about-wrap { padding: 4rem 1.2rem; }
-            .about-short { grid-template-columns: 1fr; gap: 2rem; }
-            .about-short img { height: 300px; }
-            .features { grid-template-columns: 1fr; padding: 0 1.2rem 4rem; }
             .cta { padding: 4.5rem 1.2rem; }
             .footer { padding: 2.5rem 1.2rem 2rem; }
             .footer-contact { flex-direction: column; gap: 0.45rem; }
@@ -543,18 +532,18 @@
             <a href="#inicio" class="nav-logo"><span>S</span>OCALA</a>
             <nav class="nav-links">
                 <a href="#inicio" class="desktop-link">Inicio</a>
-                <a href="#productos" class="desktop-link">Productos</a>
+                <a href="#productos" class="desktop-link">Bloques</a>
                 <a href="#cotizar" class="desktop-link">Cotizar</a>
                 <a href="#contacto" class="desktop-link">Contacto</a>
-                <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20pedir%20una%20cotización%20de%20materiales%20de%20construcción." class="nav-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
+                <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20bloques%20para%20mi%20obra." class="nav-whatsapp" target="_blank"><i class="fab fa-whatsapp"></i> WhatsApp</a>
                 <button class="menu-toggle" id="menuToggle" aria-label="Abrir menú"><i class="fas fa-bars"></i></button>
             </nav>
             <div class="mobile-menu" id="mobileMenu">
                 <a href="#inicio">Inicio <i class="fas fa-chevron-right"></i></a>
-                <a href="#productos">Productos <i class="fas fa-chevron-right"></i></a>
+                <a href="#productos">Bloques <i class="fas fa-chevron-right"></i></a>
                 <a href="#cotizar">Cotizar <i class="fas fa-chevron-right"></i></a>
                 <a href="#contacto">Contacto <i class="fas fa-chevron-right"></i></a>
-                <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20pedir%20una%20cotización%20de%20materiales%20de%20construcción." class="mobile-cta" target="_blank"><i class="fab fa-whatsapp"></i> Pide tu cotización</a>
+                <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20bloques%20para%20mi%20obra." class="mobile-cta" target="_blank"><i class="fab fa-whatsapp"></i> Pide tu cotización</a>
             </div>
         </div>
     </header>
@@ -563,90 +552,53 @@
     <section class="hero" id="inicio">
         <div class="hero-content">
             <div class="hero-logo"><span>S</span>OCALA</div>
-            <div class="hero-kicker">EL SALVADOR · MATERIALES DE OBRA GRIS</div>
-            <h1 class="hero-title">La fuerza detrás<br>de cada <span>obra.</span></h1>
+            <div class="hero-kicker">DISTRIBUIDOR DE BLOQUES · EL SALVADOR</div>
+            <h1 class="hero-title">Bloques para construir<br><span>con confianza.</span></h1>
             <p class="hero-subtitle">SOCALA la soca con vos.</p>
-            <p class="hero-note">Materiales, herramientas y respaldo para que tu obra avance sin detenerse.<br>Estamos listos para ayudarte con tu cotización.</p>
+            <p class="hero-note">Encontrá la medida que necesitás, cotizá fácil y coordinamos la entrega para tu obra.</p>
             <div class="hero-buttons">
-                <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20pedir%20una%20cotización%20de%20materiales%20de%20construcción." class="btn btn-primary" target="_blank">
+                <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20bloques%20para%20mi%20obra." class="btn btn-primary" target="_blank">
                     <i class="fab fa-whatsapp"></i> Pide tu cotización
                 </a>
                 <a href="#productos" class="btn btn-secondary">
-                    <i class="fas fa-layer-group"></i> Ver materiales
+                    <i class="fas fa-layer-group"></i> Ver bloques
                 </a>
             </div>
         </div>
     </section>
 
-    <!-- MATERIALES -->
+    <!-- BLOQUES -->
     <section class="section-soft" id="productos">
         <div class="container">
             <div class="section-head">
-                <span class="label">Materiales principales</span>
-                <h2 class="section-title">Lo esencial para tu <span>obra.</span></h2>
-                <p class="section-copy">Cotiza fácil por WhatsApp y recibe atención clara para tu proyecto.</p>
+                <span class="label">Nuestros bloques</span>
+                <h2 class="section-title">Elegí la medida para tu <span>obra.</span></h2>
+                <p class="section-copy">Cotizá según la cantidad y el municipio de entrega.</p>
             </div>
             <div class="materials-grid">
                 <article class="material-card">
-                    <img src="bloques.png" alt="Bloques de construcción">
-                    <div class="material-content"><h3>Bloques</h3><p>Para muros, divisiones y construcción general.</p></div>
+                    <div class="block-visual"><span class="block-hole"></span><span class="block-hole"></span></div>
+                    <div class="material-content"><span class="block-tag">BLOQUE DE CONCRETO</span><h3>10 × 20 × 40 cm</h3><p>Para divisiones y paredes livianas.</p><a class="product-link" href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20bloque%2010x20x40.%20Necesito%20___%20unidades%20y%20la%20entrega%20sería%20en%20___." target="_blank">Cotizar esta medida <i class="fas fa-arrow-right"></i></a></div>
                 </article>
                 <article class="material-card">
-                    <img src="cemento.png" alt="Cemento">
-                    <div class="material-content"><h3>Cemento</h3><p>Para cimentaciones, losas, mezclas y acabados.</p></div>
+                    <div class="block-visual"><span class="block-hole"></span><span class="block-hole"></span></div>
+                    <div class="material-content"><span class="block-tag">BLOQUE DE CONCRETO</span><h3>12 × 20 × 40 cm</h3><p>El aliado del albañil.</p><a class="product-link" href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20bloque%2012x20x40.%20Necesito%20___%20unidades%20y%20la%20entrega%20sería%20en%20___." target="_blank">Cotizar esta medida <i class="fas fa-arrow-right"></i></a></div>
                 </article>
                 <article class="material-card">
-                    <img src="hierro.png" alt="Hierro y varilla">
-                    <div class="material-content"><h3>Hierro y Varilla</h3><p>Material de refuerzo para estructuras y obra gris.</p></div>
+                    <div class="block-visual"><span class="block-hole"></span><span class="block-hole"></span></div>
+                    <div class="material-content"><span class="block-tag">BLOQUE DE CONCRETO</span><h3>15 × 20 × 40 cm</h3><p>El más pedido de la obra.</p><a class="product-link" href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20bloque%2015x20x40.%20Necesito%20___%20unidades%20y%20la%20entrega%20sería%20en%20___." target="_blank">Cotizar esta medida <i class="fas fa-arrow-right"></i></a></div>
+                </article>
+                <article class="material-card">
+                    <div class="block-visual"><span class="block-hole"></span><span class="block-hole"></span></div>
+                    <div class="material-content"><span class="block-tag">BLOQUE DE CONCRETO</span><h3>20 × 20 × 40 cm</h3><p>Mayor ancho para tu proyecto.</p><a class="product-link" href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20bloque%2020x20x40.%20Necesito%20___%20unidades%20y%20la%20entrega%20sería%20en%20___." target="_blank">Cotizar esta medida <i class="fas fa-arrow-right"></i></a></div>
                 </article>
             </div>
 
             <div class="more-materials" id="cotizar">
-                <p>También puedes cotizar <span>arena, grava, tierra, cemento y herramientas.</span></p>
-                <a class="mini-btn" href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20arena,%20grava,%20tierra,%20cemento%20o%20herramientas." target="_blank">
-                    <i class="fab fa-whatsapp"></i> Pide tu cotización
+                <p>También disponibles: <span>dados y soleras para complementar tu pedido.</span></p>
+                <a class="mini-btn" href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20consultar%20por%20dados%20o%20soleras.%20Necesito%20___%20unidades%20y%20la%20entrega%20sería%20en%20___." target="_blank">
+                    <i class="fab fa-whatsapp"></i> Consultar
                 </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- SOBRE SOCALA -->
-    <section class="about-wrap">
-        <div class="about-short">
-            <img src="Trabajadores.png" alt="SOCALA - Obrero colocando bloques de construcción">
-            <div>
-                <span class="label">Sobre SOCALA</span>
-                <h2 class="section-title">No solo se trata de <span>materiales.</span></h2>
-                <p class="section-copy">En <span class="brand-highlight">SOCALA</span> creemos que cada proyecto comienza con <span class="strong-highlight">esfuerzo</span>, <span class="strong-highlight">sueños</span> y ganas de salir adelante. Por eso trabajamos para ofrecer <span class="strong-highlight">materiales de construcción confiables</span>, atención responsable y soluciones prácticas para quienes están construyendo, remodelando o empezando algo propio.</p>
-                <p class="section-copy">Ya seas albañil, maestro de obra o alguien que apenas está comenzando, en <span class="brand-highlight">SOCALA</span> encontrarás <span class="strong-highlight">respaldo para sacar el trabajo adelante.</span></p>
-                <div class="quote-box">"La Fuerza Detrás de Cada Obra"</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- POR QUÉ SOCALA -->
-    <section class="section-soft">
-        <div class="container" style="padding-bottom: 3rem;">
-            <div class="section-head">
-                <span class="label">Por qué SOCALA</span>
-                <h2 class="section-title">Directos, claros y <span>responsables.</span></h2>
-            </div>
-        </div>
-        <div class="features">
-            <div class="feature">
-                <i class="fas fa-bolt"></i>
-                <h3>Atención rápida</h3>
-                <p>Estamos listos para ayudarte con tu cotización. Sabemos que el tiempo en la obra es oro.</p>
-            </div>
-            <div class="feature">
-                <i class="fas fa-shield-alt"></i>
-                <h3>Materiales confiables</h3>
-                <p>Buscamos productos adecuados para que tu proyecto avance seguro.</p>
-            </div>
-            <div class="feature">
-                <i class="fab fa-whatsapp"></i>
-                <h3>Cotización directa</h3>
-                <p>Nos escribes por WhatsApp, nos cuentas qué necesitas y estamos listos para ayudarte.</p>
             </div>
         </div>
     </section>
@@ -654,11 +606,11 @@
     <!-- CTA -->
     <section class="cta">
         <div class="cta-content">
-            <h2>Contanos qué necesitás.</h2>
-            <p>Materiales, cantidades o dudas para tu obra.</p>
+            <h2>¿Ya sabés qué bloque necesitás?</h2>
+            <p>Contanos la medida, cantidad y lugar de entrega.</p>
             <div class="cta-brand-line">SOCALA la soca con vos.</div>
-            <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20pedir%20una%20cotización%20de%20materiales%20de%20construcción." class="btn btn-primary" target="_blank">
-                <i class="fab fa-whatsapp"></i> Pide tu cotización
+            <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20bloques.%20Necesito%20___%20unidades%20de%20bloque%20___%20y%20la%20entrega%20sería%20en%20___." class="btn btn-primary" target="_blank">
+                <i class="fab fa-whatsapp"></i> Cotizar por WhatsApp
             </a>
         </div>
     </section>
@@ -669,7 +621,7 @@
             <div class="footer-brand"><span>S</span>OCALA</div>
             <p class="footer-desc">
                 <strong>La fuerza detrás de cada obra.</strong><br>
-                Materiales y herramientas para tu construcción.<br>
+                Distribución de bloques para tu construcción.<br>
                 <span class="footer-location">San Juan Opico, La Libertad, El Salvador.</span>
             </p>
             <div class="footer-contact">
@@ -686,7 +638,7 @@
     </footer>
 
     <!-- WHATSAPP FLOAT -->
-    <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20pedir%20una%20cotización%20de%20materiales%20de%20construcción." class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
+    <a href="https://wa.me/50370580292?text=Hola%20SOCALA,%20quiero%20cotizar%20bloques%20para%20mi%20obra." class="whatsapp-float" target="_blank" aria-label="Contactar por WhatsApp">
         <i class="fab fa-whatsapp"></i>
     </a>
 
